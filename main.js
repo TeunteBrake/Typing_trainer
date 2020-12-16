@@ -1,8 +1,9 @@
 const Discord = require('discord.js');
+const config = require('./config.json');
+
+const prefix = "TTB ";
 
 const client = new Discord.Client();
-
-const prefix =  "TTB ";
 
 const fs = require('fs');
 
@@ -21,9 +22,9 @@ client.once('ready', () => {
 })
 
 client.on('message', message =>{
-    if(!message.content.startsWith(prefix) || message.author.bot) return;
+    if(!message.content.startsWith(config.prefix) || message.author.bot) return;
 
-    const args = message.content.slice(prefix.length).split(/ + /);
+    const args = message.content.slice(config.prefix.length).split(/ + /);
     const command = args.shift().toLowerCase();
 
     if(command === 'ping'){
@@ -36,4 +37,4 @@ client.on('message', message =>{
 });
 
 //MAKE SURE THIS IS THE LAST LINE OF CODE
-client.login('NzcyMTEzMDY4NzU4NTMyMTE2.X518VA.5xs-cZDlGgUSaov3Z3R-6KeDMkM');
+client.login(config.token);
