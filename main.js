@@ -1,8 +1,6 @@
 const Discord = require('discord.js');
 const config = require('./config.json');
 
-const prefix = "TTB ";
-
 const client = new Discord.Client();
 
 const fs = require('fs');
@@ -31,7 +29,6 @@ client.on('message', message =>{
         client.commands.get("ping").execute(message, args);
     }
     else if(command === 'string'){
-        client.commands.get("string").execute(message, args);
         client.commands.get("typing").execute(message, args);
     }
 });

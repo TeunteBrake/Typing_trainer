@@ -1,3 +1,11 @@
+module.exports = {
+    name: 'string',
+    textString: '',
+    description: 'this generates a random string',
+    execute(){
+        this.textString = generateString(10)
+    }
+}
 function generateString(length) {
     var result = '';
     var characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
@@ -6,12 +14,4 @@ function generateString(length) {
         result += characters.charAt(Math.floor(Math.random() * charactersLength));
     }
     return result;
-}
-module.exports = {
-    name: 'string',
-    textString: '',
-    description: 'this generates a random string',
-    execute(message, args) {
-        this.textString = generateString(10)
-    }
 }
